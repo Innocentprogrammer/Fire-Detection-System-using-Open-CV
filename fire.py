@@ -1,6 +1,7 @@
 import cv2         
 import threading   
-import playsound     
+import playsound   
+from twilio.rest import Client   
 import datetime
 
 # The below line is to access the xml file which includes positive and negative images of fire. 
@@ -14,6 +15,10 @@ runOnce = False
 Message_Status = False
 
 # Twilio credentials (replace with your own)
+account_sid = 'AC544f52444dd4bedff81d1d8fa407a651'
+auth_token = '3bda45e5908ff42f0f1e0966f0ce70ea'
+twilio_phone_number = '+12035294362'
+recipient_phone_number = '+918445518517'
 
 # Video writer settings for saving detected fire footage
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
@@ -39,6 +44,17 @@ def play_alarm_sound_function():
     print("Fire alarm end") 
 
 # Twilio message sending function
+def send_message_function():
+    try:
+        client = Client(account_sid, auth_token)
+        message = client.messages.create(
+            body="Warning! A Fire Accident has been detected.",
+            from_=twilio_phone_number,
+            to=recipient_phone_number
+        )
+        print(f"Message sent to {recipient_phone_number}")
+    except Exception as e:
+        print(e)
 
 while(True):
     Alarm_Status = False
@@ -62,6 +78,9 @@ while(True):
 
         print("Fire alarm initiated for Camera 1")
         threading.Thread(target=play_alarm_sound_function).start()
+        if Message_Status == False:
+            threading.Thread(target=send_message_function).start()
+            Message_Status = True
 
     # Process fire detection in second camera
     for (x, y, w, h) in fire2:
@@ -71,6 +90,9 @@ while(True):
 
         print("Fire alarm initiated for Camera 2")
         threading.Thread(target=play_alarm_sound_function).start()
+        if Message_Status == False:
+            threading.Thread(target=send_message_function).start()
+            Message_Status = True
 
     # Display the frames from both cameras
     cv2.imshow('Camera 1', frame1)

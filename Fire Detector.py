@@ -1,7 +1,8 @@
-import cv2         
 import threading   
-import playsound   
 from twilio.rest import Client   
+import playsound   
+import cv2      
+import serial.tools.list_ports   
 
 # The below line is to access xml file which includes positive and negative images of fire. (Trained images) File is also provided within the quote "NO MR_STOCK FOOTAGE NO MR (1831)_preview.mp4" 
 fire_cascade = cv2.CascadeClassifier('fire_detection.xml') 
@@ -31,6 +32,33 @@ def send_message_function():
         print(f"Message sent to {recipient_phone_number}")
     except Exception as e:
         print(e)
+
+
+# for arduino connectivity 
+ports = serial.tools.list_ports.comports()
+serialInst = serial.Serial()
+portsList = []
+
+for one in ports:
+    portsList.append(str(one))
+    print(str(one))
+
+# com = input("Select Com Port for Arduino #: ")
+com=3
+ 
+
+for i in range(len(portsList)):
+    if portsList[i].startswith("COM" + str(com)):
+        use = "COM" + str(com)
+        print(use)
+
+
+
+serialInst.baudrate = 9600
+serialInst.port = use
+serialInst.open()
+
+# arduino connnectivity code end
 		
 while(True):
     Alarm_Status = False

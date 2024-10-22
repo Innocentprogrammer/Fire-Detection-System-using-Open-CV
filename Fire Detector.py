@@ -9,6 +9,7 @@ fire_cascade = cv2.CascadeClassifier('fire_detection.xml')
 video = cv2.VideoCapture(0) 
 runOnce = False 
 Message_Status = False
+Alarm_Status = False
 
 # Twilio credentials (replace with your own)
 account_sid = 'AC544f52444dd4bedff81d1d8fa407a651'
@@ -17,7 +18,7 @@ twilio_phone_number = '+12035294362'
 recipient_phone_number = '+918445518517'
 
 def play_alarm_sound_function(): 
-    playsound.playsound('fire_Alarm.mp3',True) 
+    playsound.playsound('preview.mp3',True) 
     print("Fire alarm end") 
 
 def send_message_function():
@@ -33,7 +34,6 @@ def send_message_function():
         print(e)
 		
 while(True):
-    Alarm_Status = False
     ret, frame = video.read() 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     fire = fire_cascade.detectMultiScale(frame, 1.2, 5) 

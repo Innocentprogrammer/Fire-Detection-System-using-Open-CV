@@ -40,7 +40,7 @@ def log_event(event):
 
 # Play alarm sound function
 def play_alarm_sound_function(): 
-    playsound.playsound('fire_Alarm.mp3', True) 
+    playsound.playsound('preview.mp3', True) 
     print("Fire alarm end") 
 
 # Twilio message sending function

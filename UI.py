@@ -46,18 +46,17 @@ def start():
                 gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 fire = fire_cascade.detectMultiScale(frame, 1.2, 5) 
 
-                if len(fire) > 0:
-                    for (x,y,w,h) in fire:
-                        cv2.rectangle(frame,(x-20,y-20),(x+w+20,y+h+20),(255,0,0),2)
-                        ri_gray = gray[y:y+h, x:x+w]
-                        ri_color = frame[y:y+h, x:x+w]
+                for (x,y,w,h) in fire:
+                    cv2.rectangle(frame,(x-20,y-20),(x+w+20,y+h+20),(255,0,0),2)
+                    ri_gray = gray[y:y+h, x:x+w]
+                    ri_color = frame[y:y+h, x:x+w]
 
-                        print("Fire alarm initiated")
-                        threading.Thread(target=play_alarm_sound_function).start() 
-                        if Message_Status == False:
-                            threading.Thread(target=send_message_function).start()
+                    print("Fire alarm initiated")
+                    threading.Thread(target=play_alarm_sound_function).start() 
+                    if Message_Status == False:
+                        threading.Thread(target=send_message_function).start()
                             # nonlocal Message_Status
-                            Message_Status = True
+                        Message_Status = True
 
                 # Convert frame to ImageTk format to display in Tkinter
                 cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)

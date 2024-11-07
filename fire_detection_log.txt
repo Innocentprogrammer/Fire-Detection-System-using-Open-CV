@@ -1,2 +1,21 @@
-2024-10-19 22:00:28 - Fire detected in Camera 1
-2024-10-21 19:33:36 - Fire detected in Camera 1
+2024-10-23 12:54:37 - Fire detected in Camera 1
+2024-10-23 13:28:46 - Fire detected in Camera 2
+2024-10-23 13:40:44 - Image saved: fire_detected_camera1_20241023-134044.jpg
+2024-10-23 13:40:44 - Fire detected in Camera 1
+2024-10-23 13:40:45 - Image saved: fire_detected_camera2_20241023-134045.jpg
+2024-10-23 13:40:45 - Fire detected in Camera 2
+2024-10-23 13:40:47 - Image saved: fire_detected_camera2_20241023-134047.jpg
+2024-10-23 13:40:47 - Fire detected in Camera 2
+2024-10-23 13:42:18 - Image saved: fire_detected_camera2_20241023-134218.jpg
+2024-10-23 13:42:18 - Fire detected in Camera 22024-10-23 14:57:48 - Image saved: fire_detected_camera1_20241023-145748.jpg
+2024-10-23 14:57:49 - Fire detected in Camera 1
+2024-10-23 14:57:49 - Image saved: fire_detected_camera1_20241023-145749.jpg
+2024-10-23 14:57:50 - Fire detected in Camera 1
+2024-10-23 15:02:04 - Image saved: fire_detected_camera1_20241023-150204.jpg
+2024-10-23 15:02:05 - Fire detected in Camera 1
+2024-10-23 15:03:48 - Image saved: fire_detected_camera1_20241023-150348.jpg
+2024-10-23 15:03:51 - Fire detected in Camera 1
+2024-10-23 15:09:59 - Image saved: fire_detected_camera1_20241023-150959.jpg
+2024-10-23 15:10:01 - Fire detected in Camera 1
+2024-10-23 15:12:04 - Image saved: fire_detected_camera1_20241023-151204.jpg
+2024-10-23 15:12:06 - Fire detected in Camera 1

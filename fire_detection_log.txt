@@ -880,3 +880,4 @@
 2024-10-22 16:55:32 - Fire detected in Camera 2
 2024-10-22 16:55:32 - Fire detected in Camera 2
 >>>>>>> 88911b23d793a7084983e35bb7274e3ae70079a6
+2025-02-16 10:56:40 - Fire detected in Camera 1
